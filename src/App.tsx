@@ -6,6 +6,7 @@ import { Grid } from "@material-ui/core";
 import Home from "./paginas/home/Home";
 import './App.css'
 import Login from './paginas/login/Login';
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Login />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/home" element={<Home />}/>
+          <Route path="/cadastrousuario" element={<CadastroUsuario />}/>
              
         </Routes>
         </div>
