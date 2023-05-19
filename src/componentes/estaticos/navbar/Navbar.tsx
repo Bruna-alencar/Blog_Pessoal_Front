@@ -9,6 +9,7 @@ function Navbar() {
         <>
             <AppBar position="static">
                 <Toolbar variant="dense">
+                 <Grid container justifyContent={'space-between'}>
                     <Box className='cursor'>
                         <Typography variant="h5" color="inherit">
                             BlogPessoal
@@ -45,7 +46,7 @@ function Navbar() {
                         </Link>
                         
                     </Box>
-
+                    </Grid>
                 </Toolbar>
             </AppBar>
         </>

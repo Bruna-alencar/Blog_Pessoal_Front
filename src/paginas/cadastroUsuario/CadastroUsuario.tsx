@@ -13,6 +13,7 @@ function CadastroUsuario() {
             id: 0,
             nome: '',
             usuario: '',
+            foto: '',
             senha: '',
         })
     const [userResult, setUserResult] = useState<User>(
@@ -20,6 +21,7 @@ function CadastroUsuario() {
             id: 0,
             nome: '',
             usuario: '',
+            foto: '',
             senha: ''
         })
     useEffect(() => {
@@ -38,12 +40,24 @@ function CadastroUsuario() {
     }
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
-        if (confirmarSenha == user.senha) {
-            cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
-            alert('Usuario cadastrado com sucesso')
+        if (user.senha.length >= 8) {
+            if (confirmarSenha == user.senha) {
+            try {
+                await cadastroUsuario("/usuarios/cadastrar", user, setUserResult);
+                alert("Usuário cadastrado com sucesso!")
+            } catch (error) {
+                alert("Falha ao cadastrar usuário, verifique os campos")
+            }
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+            alert("Os campos de Senha e Confirmar Senha precisam de, no mínimo, 8 caracteres");
+            setUser({...user, senha: ""});
+            setConfirmarSenha("")
         }
+    } else {
+        alert("Os campos de Senha e Confirmar Senha estão diferentes");
+        setUser({...user, senha: ""});
+        setConfirmarSenha("")
+    }
     }
     return (
         <Grid container direction="row" justifyContent="center" alignItems="center">
@@ -54,6 +68,7 @@ function CadastroUsuario() {
                         <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className="textos2">Cadastrar</Typography>
                         <TextField value={user.nome} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="nome" label="Nome completo" variant="outlined" name="nome" margin="normal" fullWidth />
                         <TextField value={user.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="usuario" label="Endereço de e-mail" variant="outlined" name="usuario" margin="normal" fullWidth />
+                        <TextField value={user.foto} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="foto" label="Foto" variant="outlined" name="foto" margin="normal" fullWidth />
                         <TextField value={user.senha} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="senha" label="Senha" variant="outlined" name="senha" margin="normal" type="password" fullWidth />
                         <TextField value={confirmarSenha} onChange={(e:ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)} id="confirmarSenha" label="Confirmar Senha" variant="outlined" name="confirmarSenha" margin="normal" type="password" fullWidth />
                         <Box marginTop={2} textAlign="center">
