@@ -43,9 +43,9 @@ function Login () {
         }
     return (
         <>
-            <Grid container direction="row" justifyContent="center" alignItems="center">
-                <Grid alignItems="center" item xs={6}>
-                    <Box paddingX={20}>
+            <Grid container direction="row" justifyContent="center" alignItems="center" className="imagem">
+                <Grid alignItems="center" item xs={8}>
+                    <Box paddingX={20} className="formulario" justifyContent="center">
                         <form onSubmit={onSubmit}>
                             <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" className="textos1">Entrar</Typography>
                             <TextField value={userLogin.usuario} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id="usuario" label="Usuário" variant="outlined" name="usuario" margin="normal" fullWidth />
@@ -62,13 +62,9 @@ function Login () {
                             </Box>
                             <Link to="/cadastrousuario">
                             <Typography variant="subtitle1" gutterBottom align="center" className="textos1">Cadastre-se </Typography>
-                            </Link>
-                               
+                            </Link>   
                         </Box>
                     </Box>
-                </Grid>
-                <Grid item xs={6} className="imagem">
-
                 </Grid>
             </Grid>
 
