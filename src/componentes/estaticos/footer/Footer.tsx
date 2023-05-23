@@ -19,9 +19,6 @@ function Footer() {
                             <a href="https://github.com/Bruna-alencar" target="_blank">
                                 <GitHubIcon className='redes'/>
                             </a>
-                            <a href="https://www.instagram.com/invites/contact/?i=10d7vje6lom4b&utm_content=5g0g05" target="_blank">
-                                <InstagramIcon className='redes'/>
-                            </a>
                             <a href="https://www.linkedin.com/in/bruna-santos-alencar-565a55193/" target="_blank">
                                 <LinkedInIcon className='redes'/>
                             </a>
