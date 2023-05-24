@@ -30,7 +30,7 @@ function CadastroTema() {
     }, [id])
 
     async function findById(id: string) {
-        buscaId("/temas/${id", setTema, {
+        buscaId(`/temas/${id}`, setTema, {
             headers: {
                 "Authorization": token
             }
@@ -75,10 +75,12 @@ function CadastroTema() {
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
+                <Typography variant="h3" color="textSecondary" component="h1" align="center" >
+                   {id !== undefined ? "Atualize " : "Cadastre "} seu Tema
+                    </Typography>
                 <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <Button type="submit" variant="contained" color="primary">
-                    Finalizar
+                <Button type="submit" variant="contained" color="primary" disabled={tema.descricao.length < 4}>
+                    Cadastrar Tema
                 </Button>
             </form>
         </Container>

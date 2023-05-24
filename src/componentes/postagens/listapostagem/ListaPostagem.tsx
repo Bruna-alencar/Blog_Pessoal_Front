@@ -37,7 +37,6 @@ function ListaPostagem() {
 
   return (
     <>
-    <h2>lista posts</h2>
       {
         posts.map(post => (
           <Box m={2} >
