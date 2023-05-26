@@ -4,10 +4,9 @@ export const api = axios.create({
     baseURL: "https://blogpessoal-psnd.onrender.com/"
 })
 
-export const login = async(url: any, dados: any, setDado: any) => {
+export const login = async (url: any, dados: any, setDados: any) => {
     const resposta = await api.post(url, dados)
-    setDado(resposta.data.token)
-    console.log(resposta);
+    setDados(resposta.data)    
 } 
 
 export const cadastroUsuario = async(url: any, dados: any, setDado: any) => {

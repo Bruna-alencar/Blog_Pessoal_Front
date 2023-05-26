@@ -1,5 +1,4 @@
 import React from 'react';
-import InstagramIcon from '@material-ui/icons/Instagram';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import {Typography, Grid } from '@material-ui/core';

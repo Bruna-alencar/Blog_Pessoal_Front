@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Postagem from '../../../models/Postagem';
 import { busca } from '../../../services/Service'
-import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import {Box} from '@mui/material';
+import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
+import { Box } from '@mui/material';
 import './ListaPostagem.css';
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux';
@@ -44,6 +44,10 @@ function ListaPostagem() {
         posts.map(post => (
           <Box m={2} >
             <Card variant="outlined">
+              <Typography variant="body2" component="p">
+                Postado por: {post.usuario?.nome}
+              </Typography>
+
               <CardContent>
                 <Typography color="textSecondary" gutterBottom>
                   Postagens
