@@ -6,6 +6,7 @@ import UserLogin from "../../models/UserLogin";
 import { login } from "../../services/Service";
 import { useDispatch } from "react-redux";
 import { addId, addToken } from "../../store/tokens/actions";
+import { toast } from "react-toastify";
 
 function Login() {
     let navigate = useNavigate();
@@ -51,10 +52,28 @@ function Login() {
         e.preventDefault();
         try {
             await login("/usuarios/logar", userLogin, setRespUserLogin);
-
-            alert("Usuário logado com sucesso!")
+            toast.success('Usuário logado com sucesso', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         } catch (error) {
-            alert("Usuário e/ou senha inválido! Tente nvamente.")
+            toast.error("Usuário e/ou senha inválido! Tente nvamente.", {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            
         }
     }
 
