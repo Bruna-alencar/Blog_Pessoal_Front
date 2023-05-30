@@ -46,6 +46,7 @@ function ListaTema() {
  
   return (
     <>
+    {temas.length === 0 && <div className='alinhamento'><div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>}
     {
       temas.map(tema =>(
       <Box m={2} >
