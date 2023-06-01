@@ -217,12 +217,12 @@ function Perfil() {
             <Box display={'flex'} gap={4}>
               <Link to={`/formularioPostagem/${posts.id}`}>
                 <Button fullWidth variant="contained" color="primary">
-                  editar
+                  Editar
                 </Button>
               </Link>
               <Link to={`/apagarPostagem/${posts.id}`}>
                 <Button fullWidth variant="contained" color="secondary">
-                  apagar
+                  Apagar
                 </Button>
               </Link>
             </Box>
